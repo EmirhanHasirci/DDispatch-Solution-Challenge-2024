@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afet-Koordinasyon | Needer</title>
+</head>
+    <body class="bg-dark bg-opacity-10 text-white">
+        <h1 class="text-center">Add Needer</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 mt-md-5 text-center">
+                <form #addForm="ngForm" method="post" (ngSubmit)="add(addForm)">                   
+                    <div class="form-group">
+                        <label class="control-label">TC</label>
+                        <input ngModel #tc name="tc" class="form-control" />
+                      
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input ngModel #name name="name" class="form-control" />
+                       
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Surname</label>
+                        <input ngModel name="surname" #surname class="form-control" />
+                      
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Phone</label>
+                        <input ngModel name="phone" #phone class="form-control" />
+                      
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Info</label>
+                        <input ngModel name="info" #info class="form-control" /> 
+                       
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="submit" value="Create Needer Request" class="btn btn-outline-primary w-100" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+

@@ -1,0 +1,112 @@
+    <body class="bg-black bg-opacity-10 text-white">
+    <div class="container mt-5 mb-5 ">
+        <div class="row border p-0">
+            <div class="col-md-3  border">
+                <div class="d-flex flex-column align-items-center text-center p-3 py3">
+                    
+                        <img *ngIf="appUser.picture!=null" class="rounded-circle mt-5 img-fluid border border-warning border-3 " [src]="'/assets/UserPictures/'+appUser.picture" />                                                           
+                        <img *ngIf="appUser.picture==null" class="rounded-circle mt-5 img-fluid border border-warning border-3 " src="../../../assets/img/DispatchUserPhoto.png" />                                                           
+                    <span class="fw-bold">{{appUser.userName}}</span>
+                    <span></span>
+                    <span class="">{{appUser.email}}</span>
+                    <span class="w-50 fw-bolder badge  bg-dark">{{userst.searchByVal(appUser.currentStatus)}}</span>
+                   
+
+                       <a (click)="changeStatus(userst.searchByVal(appUser.currentStatus)!='InActive'?'0':'1')" *ngIf="userst.searchByVal(appUser.currentStatus)!='OnMission'" class="btn mt-2" ngClass="btn-{{userst.searchByVal(appUser.currentStatus)=='InActive'?'success':'danger'}}">{{userst.searchByVal(appUser.currentStatus)=='InActive'?'SetActive':'SetPassive'}}</a>
+                       
+                       
+                       <a *ngIf="userst.searchByVal(appUser.currentStatus)=='OnMission'" class="btn btn-primary mt-2">Show Active Operation</a>
+                    
+                
+                    <a routerLink="/Dispatch/User/Edit" class="btn btn-outline-primary mt-2">Edit Profile</a>
+                </div>
+            </div>
+            <div class="col-md-9 m-0 p-0">
+                <div class="card m-0">
+                    <div class="card-body bg-dark text-white">
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Name / Surname</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{appUser.name}} {{appUser.surname}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">TC</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{appUser.tc}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{appUser.email}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">City</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{appUser.city}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Gender</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{gender.searchByVal(appUser.gender)}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Birth Date</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ appUser.birthDate }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                
+                                    
+                                    
+                                
+                                
+                                    <a class="btn btn-outline-info ">Add Phone</a>
+                                
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                               
+                                
+                                    <a class="btn btn-outline-info ">Add Address</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

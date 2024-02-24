@@ -1,0 +1,109 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afet-Koordinasyon | User Control</title>
+
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container-fluid">
+        <h1 class="text-center">Search Employee</h1>
+        <div class="row">
+            <div class="col-md-6 m-0 p-0">
+                <div class="card m-0">
+                    <div class="card-body bg-dark text-white">
+                        <div class="row text-center fw-bolder">
+                            <h1>Find User</h1>
+                            
+                                <label class="form-label">TC</label>
+                                <input autocomplete="off" class="form-control" name="tc" #tc [(ngModel)]="inputTc">
+                                <button  (click)="search()" class="btn btn-outline-success w-100 mt-2">Find User</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div *ngIf="uTc!==''" class="col-md-6 m-0 p-0">
+                <div class="card m-0">
+                    <div class="card-body bg-dark text-white">
+                        <div class="row text-center fw-bolder">
+                            <h1>User is found!</h1>
+                        </div>
+                        <hr />
+                        <div class="row mt-4">
+                            <div class="col-sm-12">
+                                <h6 class="mb-0 text-center">Fotoğraf</h6>
+                            </div>
+                            <div class="col-sm-12 text-secondary d-flex justify-content-center">
+                                
+                                <img *ngIf="uPicture !== ''&&uPicture!=null" style="min-height:250px; max-height:250px" class="rounded-circle mt-5 img-fluid border border-warning border-3 " [src]="'/assets/UserPictures/'+uPicture" />
+
+                                <img *ngIf="uPicture === ''||uPicture===null" style="min-height:250px; max-height:250px" class="rounded-circle mt-5 img-fluid border border-warning border-3 " src="../../../assets/img/DispatchUserPhoto.png" />
+                                
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Ad Soyad</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <span>{{ uName }} {{ uSurname }}</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">TC</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <span>{{uTc}}</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <span>{{uMail}}</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Şehir</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                              {{uCity}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Doğum Tarihi</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                              {{uBirthdate}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-4">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{uPhone}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+</body>

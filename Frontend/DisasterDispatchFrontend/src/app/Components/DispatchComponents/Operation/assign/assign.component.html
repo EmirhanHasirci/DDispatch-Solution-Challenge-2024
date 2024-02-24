@@ -1,0 +1,111 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Afet-Koordinasyon | Assign</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body class="bg-black bg-opacity-10 text-white">
+    <div *ngIf="emergencyReport!=null" class="container-fluid">
+        <h1 class="text-center">Start Operation</h1>
+        <div class="row">
+            <div class="col-md-6 m-0 p-0">
+                <div class="card m-0">
+                    <div class="card-body bg-dark text-white">
+                        <div class="row text-center fw-bolder">
+                            <h1>Emergency Report</h1>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Reporter TC/Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{emergencyReport.reporterTc}} // {{emergencyReport.reporterPhoneNumber}} 
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Province/District</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{emergencyReport.province}} // {{emergencyReport.district}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Neighbourhood</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{emergencyReport.neighbourhood}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Street</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{emergencyReport.street}}
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Info</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{emergencyReport.info}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Status</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{emergencyReport.status}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 m-0 p-0">
+                <div class="card m-0">
+                    <div class="card-body bg-dark text-white">
+                        <div class="row text-center fw-bolder">
+                            <h1>Active Disaster Operations</h1>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <form #addForm="ngForm" (ngSubmit)="add(addForm)" method="post">
+
+                                <select
+                                    class="form-control text-center form-select-lg disasterCategory" multiple>
+                                    <option [style.backgroundColor]="operation.disasterCategory.color" (click)="selectOperation(operation.id)" *ngFor="let operation of disasterOperations" [value]="operation.id">{{operation.provinceId}}</option>
+                                </select>
+                                <input #EmergencyReportId ngModel  hidden name="EmergencyReportId" [value]="emergencyReport.id" />
+                                <button type="submit" class="btn btn-outline-success w-100 mt-md-3">Start Operation</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="emergencyReport==null" class="alert alert-danger p-5 text-center">
+        Report cannot be found
+    </div>
+
+</body>

@@ -1,0 +1,49 @@
+<style>
+    .table-responsive {
+        max-height: 400px;
+    }
+</style>
+
+<h1>Operations</h1>
+<div *ngIf="customOperationDto!=null" class="table-responsive mb-3 ms-2">
+    <table class="table table-bordered table-dark " style="max-height: 2px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+        <thead class="sticky-top text-center">
+            <tr>
+                <th>Reporter Tc</th>
+                <th>Reporter Phone</th>
+                <th>Info</th>
+                <th>Province</th>
+                <th>District</th>
+                <th>NeigbourHood</th>
+                <th>Street</th>
+                <th>Status</th>
+                <th>Disaster Category</th>
+                <th>Tools</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" style="max-height: 200px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+           
+
+               <tr >
+                   <td>{{customOperationDto.emergencyReport?.reporterTc}}</td>
+                   <td>{{customOperationDto.emergencyReport?.reporterPhoneNumber}}</td>
+                   <td>{{customOperationDto.emergencyReport?.info}}</td>
+                   <td>{{customOperationDto.emergencyReport?.province}} </td>
+                   <td>{{customOperationDto.emergencyReport?.district}}</td>
+                   <td>{{customOperationDto.emergencyReport?.neighbourhood}} </td>
+                   <td>{{customOperationDto.emergencyReport?.street}}</td>
+                   <td><span class="badge" [style.backgroundColor]="customOperationDto.disasterOperation?.disasterCategory?.color">{{customOperationDto.disasterOperation?.disasterCategory?.name}}</span> </td>
+                   <td>{{customOperationDto.status}}</td>
+                   <td><a routerLink="/Dispatch/Operation/AssignEmployee/{{customOperationDto.id}}/{{customOperationDto.disasterOperation?.provinceId}}" class="btn btn-outline-info">Assign Employee</a></td>
+                </tr>
+           
+            
+        </tbody>
+    </table>
+</div>
+
+
+<div *ngIf="customOperationDto==null" class="alert alert-danger p-5 text-center">
+    Report cannot be found
+</div>
+

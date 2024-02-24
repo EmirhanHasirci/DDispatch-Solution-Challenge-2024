@@ -1,0 +1,19 @@
+<div class="text logo-text text-white d-flex ">
+    <div>
+
+        <span class="image">
+            <a routerLink="/Dispatch/User">
+                <img style="min-height:50px; max-height:50px" *ngIf="appUser.picture!=null" class="rounded-circle mt-5 img-fluid border border-warning border-3 "
+                    [src]="'/assets/UserPictures/'+appUser.picture" />
+                <img style="min-height:50px; max-height:50px" *ngIf="appUser.picture==null" class="rounded-circle mt-5 img-fluid border border-warning border-3 "
+                    src="../../../assets/img/DispatchUserPhoto.png" /> </a> </span>
+    </div>
+    
+    
+    <div class="user_information d-none ms-sm-2">
+        <br>
+        <span class="name"> {{appUser.name}} {{appUser.surname}} </span><br>
+        <span class="profession " style="text-align:center"><small>TC: {{appUser.tc}} </small></span><br>    
+        <span class="profession" style="text-align:center"><small> Mail: {{appUser.email}} </small></span>
+    </div>
+</div>

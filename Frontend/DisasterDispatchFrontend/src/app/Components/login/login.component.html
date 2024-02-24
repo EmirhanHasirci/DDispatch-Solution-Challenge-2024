@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class="h-100 d-flex align-items-center justify-content-center ">
+
+        <div class="container-fluid justify-content-center ">
+            <div class="row  ">
+                <div class="col-md-6 offset-md-3 ">
+                    <div class="row">
+                        <h1 class="text-white text-center d-sm-none my-4 mb-0 bg-secondary bg-opacity-50">
+                            DDispatch
+                        </h1>
+                        <div class="col-md-8 d-none d-sm-block p-0">
+                            <div class="card bg-dark text-white d-flex">
+                                <img src="../../../assets/img/homeAbout2.png" class="card-img " alt="...">
+                                <div class="card-img-overlay text-center  bg-black bg-opacity-75">
+                                    <h1 class="card-title  my-4 bg-secondary bg-opacity-50">DDispatch</h1>
+                                    <h3 class="card-text">
+                                        Log in to provide assistance for disasters that have occurred
+                                    </h3>
+                                    <div
+                                        class="card-img-overlay d-flex flex-column justify-content-center    align-items-center ">
+                                        <h3 class="card-text d-none d-xxl-block">
+                                            To take part in disaster operations
+                                            activate your status in the system and start your mission
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 p-0 bg-light bg-opacity-10 d-flex flex-column justify-content-center">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="text-center text-white ">
+                                        <h4 class="p-5 pb-0">Login Page</h4>
+                                        <div class="p-0 m-0">
+                                            <form #addForm="ngForm" (ngSubmit)="login(addForm)" method="post" autocomplete="off" class="p-2 m-2 ">
+                                                <div class="mb-3">
+                                                    <label class="form-label">TC</label>
+                                                    <input #tc name="tc" ngModel type="text"
+                                                        class="form-control">
+                                                    <span class="text-danger"></span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Password</label>
+                                                    <input #password name="password" ngModel type="password"
+                                                        class="form-control">
+                                                    <span class="text-danger"></span>
+                                                </div>
+
+                                                <button class="btn btn-lg btn-success w-100 ">Login</button>
+                                                <div class="text-danger"></div>
+                                            </form>
+                                            <div class="p-2 m-2">
+
+                                                <a routerLink="/Register" class="btn btn-lg btn-primary w-100 ">Register</a>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2 ">
+                                                <a routerLink="" class="link-light text-decoration-none me-3 fw-bolder">
+                                                    <i class="fa fa-arrow-circle-o-left">
+                                                    </i>Return to the Website
+                                                </a>
+                                                <a href="#" class="link-light text-decoration-none me-3 fw-bolder">
+                                                    Forgot my password
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer fw-bolder text-white bg-black text-muted text-center">
+                            <div class="p-2">
+                               Social Media
+                            </div>
+                            <div class="bg-secondary bg-opacity-25 text-decoration-none">
+                                <a href="#" class="fa fa-facebook p-3 rounded-3 text-decoration-none link-light"></a>
+                                <a href="#" class="fa fa-instagram p-3 rounded-3 text-decoration-none link-light"></a>
+                                <a href="#" class="fa fa-twitter p-3  rounded-3 text-decoration-none link-light"></a>
+                                <a href="#"
+                                    class="fa fa-youtube-play p-3 rounded-3 text-decoration-none link-light"></a>
+
+                            </div>
+                            <div class="text-start">
+                                DDispatch -- &copy;Emirhan
+                                Hasırcı
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

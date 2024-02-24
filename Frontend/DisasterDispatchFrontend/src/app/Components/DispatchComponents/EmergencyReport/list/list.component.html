@@ -1,0 +1,85 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afet-Koordinasyon | Report List</title>
+    <style>
+        .table-responsive {
+            max-height: 400px;
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+    <section *ngIf="result!=null">
+
+        <h1 class="text-center text-white">Emergency Reports</h1>
+        <div class="row d-flex align-items-end justify-content-end p-4">
+            <a routerLink="/Dispatch/EmergencyReport/List/Active"
+                class="btn btn-outline-success w-50 me-1 justify-content-center align-items-center">
+                Active Reports
+            </a>
+            <a routerLink="/Dispatch/EmergencyReport/List/OnMission" class="btn btn-outline-primary w-50">
+                Assigned Reports
+            </a>
+            <a routerLink="/Dispatch/EmergencyReport/List/InActive" class="btn btn-outline-danger w-50 mt-2">
+                Closed Reports
+            </a>
+        </div>
+        <div class="table-responsive mb-3 ms-2">
+            <table class="table table-bordered table-dark "
+                style="max-height: 2px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+                <thead class="sticky-top text-center">
+                    <tr>
+                        <th>Reporter Tc</th>
+                        <th>Reporter Phone</th>
+                        <th>Info</th>
+                        <th>Province</th>
+                        <th>District</th>
+                        <th>Neighbourhood</th>
+                        <th>Street</th>
+                        <th>Status</th>
+                        <th colspan="2">Tools</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center"
+                    style="max-height: 200px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+
+
+
+                    <tr *ngFor="let er of result">
+                        <td>{{er.reporterTc}}</td>
+                        <td>{{er.reporterPhoneNumber}}</td>
+                        <td>{{er.info}}</td>
+                        <td>{{er.province}}</td>
+                        <td>{{er.district}} </td>
+                        <td>{{er.neighbourhood}}</td>
+                        <td>{{er.street}}</td>
+                        <td>{{er.status}}</td>
+
+
+                        <td *ngIf="er.status === 'Active'">
+                            <a routerLink="/Dispatch/Operation/Assign/{{er.id}}" class="btn btn-outline-success">Start Operation</a>
+                        </td>                        
+                        <td *ngIf="er.status !== 'Active'">
+                            <a routerLink="/Dispatch/EmergencyReport/Details/{{er.id}}" class="btn btn-outline-info">Operation Details</a>
+                        </td>                        
+                        <td *ngIf="er.status === 'OnMission'">
+                            <a (click)="changeStatusInActive(er.id.toString())" class="btn btn-outline-warning">End Report</a>
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <a class="btn btn-success btn-lg" routerLink="/Dispatch/EmergencyReport/">Create Report</a>
+
+
+    </section>
+    <div *ngIf="result==null" class="alert alert-danger p-5 text-center">
+        Reports cannot be found
+    </div>
+
+</body>

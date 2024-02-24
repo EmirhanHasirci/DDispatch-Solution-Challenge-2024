@@ -1,0 +1,124 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afet-Koordinasyon | Assign</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body class="bg-black bg-opacity-10 text-white">
+    <div class="container-fluid">
+        <h1 class="text-center">Assign Operation Employee</h1>
+        <div class="row">
+            <div class="col-md-6 m-0 p-0">
+                <div class="card m-0">
+                    <div class="card-body bg-dark text-white">
+                        <div class="row text-center fw-bolder">
+                            <h1>Emergency Report</h1>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <span hidden class="operationId">dto.Id</span>
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Reporter TC / Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{customOperation.emergencyReport!.reporterTc!}} //
+                                {{customOperation.emergencyReport!.reporterPhoneNumber}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Province / District</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{customOperation.emergencyReport?.province}} //
+                                {{customOperation.emergencyReport?.district}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Neighbourhood</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{customOperation.emergencyReport?.neighbourhood}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Street</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{customOperation.emergencyReport?.street}}
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Info</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{customOperation.emergencyReport?.info}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Disaster Category</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <span class="badge">{{customOperation.disasterOperation?.disasterCategory?.name}}</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Status</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{customOperation.emergencyReport?.status}}
+                            </div>
+                        </div>
+                        <hr />
+                        <button (click)="Add()" class="btnSend mt-1 w-100 btn btn-outline-success">Assign</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 m-0 p-0">
+                <div class="card m-0">
+                    <div class="card-body bg-dark text-white">
+                        <div class="row text-center fw-bolder">
+                            <h1>Active users that can be assign</h1>
+                        </div>
+                        <hr />
+                        <div style=" max-height: 550px; -webkit-overflow-scrolling: touch; overflow-y: scroll;"
+                            class="userlist">
+
+
+
+                            <div (click)="ListCheck(user.id)" [class.selected]="selected" *ngFor="let user of activeUsersByCity" [style.backgrounColor]="" class="row border p-0 m-0 d-inline-block w-100">
+                                <span hidden class="userInfo">{{user.id}}</span>
+                                <img style="max-height:150px; max-width:150px;"
+                                    class="rounded-circle d-inline img-fluid border border-warning border-3 "
+                                    [src]="'/assets/UserPictures/'+user.picture" />
+                                <span> {{user.name}} {{user.surname}}</span><span class="badge bg-warning text-black">volunteer</span> <span> {{user.city}} </span><span>
+                                    {{userStatus.searchByVal(user.currentStatus)}} </span>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

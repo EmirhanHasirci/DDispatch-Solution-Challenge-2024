@@ -1,0 +1,52 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afet-Koordinasyon | Disaster Operations</title>
+    <style>
+        .table-responsive {
+            max-height: 400px;
+        }
+    </style>
+</head>
+
+<body class="bg-dark p-3 text-white" style="height: 100vh;">
+    <h1 class="text-center">Disaster Operations</h1>
+    <div *ngIf="result!=null" class="table-responsive mb-3 ms-2" style="height: 100vh;">
+
+        <table class="table table-bordered table-dark "
+            style="max-height: 20px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+            <thead class="sticky-top text-center">
+                <tr>
+                    <th>Province Id</th>
+                    <th>Province</th>
+                    <th>Category</th>
+                    <th colspan="2">Assigner</th>
+                    <th colspan="2">Tools</th>
+                </tr>
+            </thead>
+            <tbody class="text-center"
+                style="max-height: 200px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+                <tr *ngFor="let operation of result">
+                    <td>{{operation.provinceId}}</td>
+                    <td>{{getCityName(operation.provinceId)}}</td>
+                    <td><span class="badge text-dark"
+                            [style.backgroundColor]="operation.disasterCategory.color">{{operation.disasterCategory.name}}</span>
+                    </td>
+                    <td>{{operation.assigner.name}}</td>
+                    <td>{{operation.assigner.surname}}</td>                    
+                    <td><a routerLink="/Dispatch/Operation/Details/{{operation.id}}" class="btn btn-outline-info">Show Operations</a></td>
+                </tr>
+                <!--
+                        }
+                    -->
+            </tbody>
+        </table>
+    </div>
+    <a class="btn btn-outline-success btn-lg" routerLink="/Dispatch/Disaster">Create Disaster Scenario</a>
+    
+            <div *ngIf="result==null" class="alert alert-danger p-5 text-center">
+                Operations cannot be found
+            </div>
+     
+</body>

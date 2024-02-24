@@ -1,0 +1,79 @@
+body{
+    padding:0px;
+    margin:0px;
+}
+.p {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.navbar .nav-link {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding-left: 0.7rem !important;
+    padding-right: 0.7rem !important;
+}
+
+.map svg {
+    padding-left: 100px;
+    height: 500px;
+    width: 90%;
+    max-width: 1200px;
+    display: block;
+}
+
+.land {
+    fill: lightseagreen;
+    fill-opacity: 1;
+    stroke: white;
+    stroke-opacity: 1;
+    stroke-width: 0.5;
+}
+
+    .land:hover {
+        cursor: pointer;
+        color: black;
+        fill: wheat;
+        fill-opacity: 1;
+        stroke: white;
+        stroke-opacity: 1;
+        stroke-width: 0.5;
+    }
+
+.info_panel {
+    background-color: rgba(255, 255, 255, .8);
+    padding: 5px;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    border: 1px solid #333;
+    color: #333;
+    white-space: nowrap;
+}
+
+    .info_panel::first-line {
+        font-weight: bold;
+    }
+
+.map-info {
+    height: 200px;
+}
+
+.selectedCity {
+    fill: red !important;
+}
+
+.text {
+    text-anchor: middle;
+    fill: black;
+}
+
+@media only screen and (max-width: 600px) {
+    .map svg {
+        padding-left: 30px;
+        height: 250px;
+        width:400px;
+        margin-top: 50px;
+        margin-left: 20px;
+    }
+}

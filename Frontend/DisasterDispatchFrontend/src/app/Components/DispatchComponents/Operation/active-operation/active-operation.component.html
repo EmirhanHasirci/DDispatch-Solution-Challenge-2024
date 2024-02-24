@@ -1,0 +1,82 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afet-Koordinasyon | Active Operations</title>   
+</head>
+<body>
+<div *ngIf="dto!=null" class="container-fluid">
+    <h1 class="text-center">Active Operation</h1>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6  m-0 p-0">
+            <div class="card m-0">
+                <div class="card-body bg-dark text-white">
+                    <div class="row text-center fw-bolder">
+                        <h1>Emergency Report</h1>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Reporter TC / Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                           {{dto.customOperation?.emergencyReport?.reporterTc}} / {{dto.customOperation?.emergencyReport?.reporterPhoneNumber}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Province / District</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{dto.customOperation?.emergencyReport?.province}} / {{dto.customOperation?.emergencyReport?.district}} 
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Neighbourhood</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{dto.customOperation?.emergencyReport?.neighbourhood}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Street</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{dto.customOperation?.emergencyReport?.street}}
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Info</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{dto.customOperation?.emergencyReport?.info}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Status</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{dto.customOperation?.emergencyReport?.status}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+    </div>
+
+    <div *ngIf="dto==null" class="alert alert-danger p-5 text-center">
+        Reports cannot be found
+    </div>
+
+</body>

@@ -1,0 +1,40 @@
+<body class="bg-dark text-white" style="height: 100vh;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-md-5 text-center">
+            <form #createForm="ngForm" method="post" (ngSubmit)="add(createForm)">
+                <div class="form-group">
+                    <label class="control-label" >Reporter TC</label>
+                    <input ngModel #reporterTc name="reporterTc" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Reporter Phone</label>
+                    <input ngModel #reporterPhone name="reporterPhoneNumber" class="form-control" />                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Province</label>
+                    <input ngModel #province name="province" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">District</label>
+                    <input ngModel #district name="district" class="form-control" />
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Neighbourhood</label>
+                    <input ngModel #neighbourhood name="neighbourhood" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Street</label>
+                    <input ngModel #street name="street" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Info</label>
+                    <input ngModel #info name="info" class="form-control" />                    
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Create Emergency Report" class="btn btn-outline-primary w-100" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

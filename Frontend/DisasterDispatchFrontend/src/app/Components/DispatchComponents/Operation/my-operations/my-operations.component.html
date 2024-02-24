@@ -1,0 +1,53 @@
+
+    <h1 class="text-center">MyOperations</h1>
+    
+    <style>
+        .table-responsive {
+            max-height: 400px;
+        }
+    </style>
+    <div class="row d-flex align-items-end justify-content-end p-4">   
+    </div>
+    
+        <div *ngIf="myOperations!=null" class="table-responsive mb-3 ms-2">
+            <table class="table table-bordered table-dark " style="max-height: 2px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+                <thead class="sticky-top text-center">
+                    <tr>
+                        <th>Reporter Tc</th>
+                        <th>Reporter Phone</th>
+                        <th>Info</th>
+                        <th>Province</th>
+                        <th>District</th>
+                        <th>NeigbourHood</th>
+                        <th>Street</th>
+                        <th>Status</th>
+                        <th>Disaster Category</th>
+                        <th>Tools</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center" style="max-height: 200px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+                    
+
+                        <tr>
+                            <td>{{myOperations.customOperation?.emergencyReport?.reporterTc}}</td>
+                            <td>{{myOperations.customOperation?.emergencyReport?.reporterPhoneNumber}}</td>
+                            <td>{{myOperations.customOperation?.emergencyReport?.info}}</td>
+                            <td>{{myOperations.customOperation?.emergencyReport?.province}} </td>
+                            <td>{{myOperations.customOperation?.emergencyReport?.district}} </td>
+                            <td>{{myOperations.customOperation?.emergencyReport?.neighbourhood}} </td>
+                            <td>{{myOperations.customOperation?.emergencyReport?.street}}</td>
+                            <td>{{myOperations.customOperation?.status}}</td>
+                            <td><span class="badge" [style.backgroundColor]="myOperations.customOperation?.disasterOperation?.disasterCategory?.color">{{myOperations.customOperation?.disasterOperation?.disasterCategory?.name}}</span> </td>                            
+                            <td><a class="btn btn-outline-info" routerLink="/Dispatch/Operation/AssignedDetails/{{myOperations.customOperationId}}/{{myOperations.customOperation?.disasterOperation?.provinceId}}" >Operation Details</a></td>                            
+                        </tr>
+                    
+               
+                </tbody>
+            </table>
+        </div>    
+    
+        <div *ngIf="myOperations==null" class="alert alert-danger p-5 text-center">
+            List is empty
+        </div>
+    
+    

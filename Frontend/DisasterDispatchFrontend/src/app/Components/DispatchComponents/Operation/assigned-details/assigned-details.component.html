@@ -1,0 +1,123 @@
+<h1></h1>
+
+
+<div *ngIf="operationEmployee!=null" class="container-fluid">
+    <h1 class="text-center">Operation Details</h1>
+    <div class="row">
+        <div class="col-md-6 m-0 p-0">
+            <div class="card m-0">
+                <div class="card-body bg-dark text-white">
+                    <div class="row text-center fw-bolder">
+                        <h1>Emergency Report</h1>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Reporter TC / Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{operationEmployee[0].customOperation?.emergencyReport?.reporterTc}} /
+                            {{operationEmployee[0].customOperation?.emergencyReport?.reporterPhoneNumber}}
+                            <!--
+
+                                    Model[0].CustomOperation.EmergencyReport.ReporterTc / @Model[0].CustomOperation.EmergencyReport.ReporterPhoneNumber
+                                -->
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Province / District</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{operationEmployee[0].customOperation?.emergencyReport?.province}} //
+                            {{operationEmployee[0].customOperation?.emergencyReport?.district}}
+                            <!--
+
+                                    Model[0].CustomOperation.EmergencyReport.Province / @Model[0].CustomOperation.EmergencyReport.District
+                                -->
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Neighbourhood</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{operationEmployee[0].customOperation?.emergencyReport?.neighbourhood}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Street</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{operationEmployee[0].customOperation?.emergencyReport?.street}}
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Information</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{operationEmployee[0].customOperation?.emergencyReport?.info}}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Disaster Category</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <span
+                                class="badge">{{operationEmployee[0].customOperation?.disasterOperation?.disasterCategory?.name}}</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Status</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{operationEmployee[0].customOperation?.emergencyReport?.status}}
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 m-0 p-0">
+            <div class="card m-0">
+                <div class="card-body bg-dark text-white">
+                    <div class="row text-center fw-bolder">
+                        <h1>Assigned Employees</h1>
+                    </div>
+                    <hr />
+                    <div style=" max-height: 550px; -webkit-overflow-scrolling: touch; overflow-y: scroll;"
+                        class="userlist">
+
+
+
+                        <div *ngFor="let emp of operationEmployee" class="row border p-0 m-0 d-inline-block w-100">
+                            <span hidden class="userInfo">{{emp.appUserId}}</span>
+                            <img style="max-height:150px; max-width:150px;"
+                            class="rounded-circle d-inline img-fluid border border-warning border-3 "
+                            [src]="'/assets/UserPictures/'+emp.appUser?.picture" />
+                            <span>{{emp.appUser?.name}}
+                                {{emp.appUser?.surname}}</span><span>{{emp.appUser?.city}}</span><span>{{userStatus.searchByVal(emp.appUser?.currentStatus!)}}</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="operationEmployee==null" class="alert alert-danger p-5 text-center">
+    Operations cannot be found
+</div>

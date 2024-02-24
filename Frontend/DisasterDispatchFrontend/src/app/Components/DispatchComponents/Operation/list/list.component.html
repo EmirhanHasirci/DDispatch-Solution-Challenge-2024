@@ -1,0 +1,93 @@
+<h1 class="text-center">Operations</h1>
+<style>
+    .table-responsive {
+        max-height: 400px;
+    }
+</style>
+<div *ngIf="dto!=null">
+
+    <div class="row d-flex align-{{items-end justify-content-end p-4">
+
+        <a routerLink="/Dispatch/Operation/List/Active"
+            class="btn btn-outline-success w-50 me-1 justify-content-center align-{{items-center"
+            asp-action="Operations" asp-controller="Operation" asp-area="Dispatch" asp-route-value="Active">
+            Active Operations
+        </a>
+
+
+        <a routerLink="/Dispatch/Operation/List/OnMission" class="btn btn-outline-primary w-50" asp-action="Operations"
+            asp-controller="Operation" asp-area="Dispatch" asp-route-value="OnMission">
+            Assigned Operations
+        </a>
+
+
+        <a routerLink="/Dispatch/Operation/List/InActive" class="btn btn-outline-danger w-50 mt-2"
+            asp-action="Operations" asp-controller="Operation" asp-area="Dispatch" asp-route-value="InActive">
+            Closed Operations
+        </a>
+
+    </div>
+
+
+
+    <div class="table-responsive mb-3 ms-2">
+        <table class="table table-bordered table-dark "
+            style="max-height: 2px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+            <thead class="sticky-top text-center">
+                <tr>
+                    <th>Reporter Tc</th>
+                    <th>Reporter Phone</th>
+                    <th>Info</th>
+                    <th>Province</th>
+                    <th>District</th>
+                    <th>NeigbourHood</th>
+                    <th>Street</th>
+                    <th>Status</th>
+                    <th>Disaster Category</th>
+                    <th colspan="2">Tools</th>
+                </tr>
+            </thead>
+            <tbody class="text-center"
+                style="max-height: 200px; -webkit-overflow-scrolling: touch; overflow-y: scroll;">
+
+                <tr *ngFor="let item of dto">
+                    <td>{{item.emergencyReport?.reporterTc}}</td>
+                    <td>{{item.emergencyReport?.reporterPhoneNumber}}</td>
+                    <td>{{item.emergencyReport?.info}}</td>
+                    <td>{{item.emergencyReport?.province}} </td>
+                    <td>{{item.emergencyReport?.district}} </td>
+                    <td>{{item.emergencyReport?.neighbourhood}}</td>
+                    <td>{{item.emergencyReport?.street}}</td>
+                    <td><span class="badge"
+                            [style.backGround]="item.disasterOperation?.disasterCategory?.color">{{item.disasterOperation?.disasterCategory?.name}}</span>
+                    </td>
+                    <td>{{item.status}}</td>
+
+                    <td *ngIf="item.status=='Active'"><a
+                            routerLink="/Dispatch/Operation/AssignEmployee/{{item.id}}/{{item.disasterOperation?.provinceId}}"
+                            class="btn btn-outline-success">Assign Employee</a></td>
+
+
+                    <td *ngIf="item.status=='OnMission'"><a (click)="inActiveOperation(item.id)"
+                            class="btn btn-outline-warning">End Operation</a></td>
+                            
+
+                    <td *ngIf="(item.status=='OnMission')"> <a
+                            routerLink="/Dispatch/Operation/AssignedDetails/{{item.id}}/{{item.disasterOperation?.provinceId}}"
+                            class="btn btn-outline-info">Operation
+                            Details</a></td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <a routerLink="/Dispatch/Operation/AssignedByDispatcher" class="btn btn-success btn-lg mt-md-1">Start Operation</a>
+
+
+
+
+</div>
+<div *ngIf="dto==null" class="alert alert-danger p-5 text-center">
+    Liste boş
+</div>

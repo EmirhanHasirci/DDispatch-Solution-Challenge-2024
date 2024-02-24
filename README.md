@@ -8,7 +8,7 @@ Open the SQL Server and click new query from above and run the codes that inside
 
 ![SQLServer](https://github.com/EmirhanHasirci/DDispatch-Solution-Challenge-2024/assets/161166476/290b2aff-8ea1-4205-b0f1-35d864b1b330)
 
-After the creation of Database on MSSQL Server you must get the Connection sting and change it DisasterDispatch.API/appsettings file connection strings area
+After the creation of Database on MSSQL Server you must get the Connection string that created new db and change it DisasterDispatch.API/appsettings file connection strings area
 
 ![dbConnection](https://github.com/EmirhanHasirci/DDispatch-Solution-Challenge-2024/assets/161166476/e5ae8e3d-9233-439a-882f-2c5430b4d8e5)
 
